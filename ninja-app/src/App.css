@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Ropa+Sans');
+.card {
+    /* display: flex; */
+    width:50%;
+    background-color: rgba(214, 69, 44, 0.959);
+     }
+     @media (max-width : 500px) {
+        .card {
+            background-color: rgba(214, 69, 44, 0.959);width:80%
+        }
+    }
