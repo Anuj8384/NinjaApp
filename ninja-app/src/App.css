@@ -1,11 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Ropa+Sans');
+.add-field{
+    width: 200px;
+    padding: 20px;
+}
+.ninja{
+    height: auto;
+    /* padding: 10px; */
+    display: flex;
+}
 .card {
     /* display: flex; */
-    width:50%;
-    background-color: rgba(214, 69, 44, 0.959);
+    width:60%;
+    background-color: rgba(247, 235, 232, 0.959);
+    color: rgb(0, 0, 0);
+    align-content: center;
+    margin-left: 20%;
      }
      @media (max-width : 500px) {
         .card {
-            background-color: rgba(214, 69, 44, 0.959);width:80%
+            background-color: rgba(247, 235, 232, 0.959);
+            color: rgb(0, 0, 0);
+            margin-left: 20px;
+            width:90%;
         }
     }
