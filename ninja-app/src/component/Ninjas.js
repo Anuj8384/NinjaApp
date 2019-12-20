@@ -5,6 +5,7 @@ import React from "react";
 // import Button from './AddNinja'
 
 const Ninjas = ({ ninjas,deleteNinja }) => {
+  console.log(ninjas)
   //   const ninjaList =
   // return (
   //   <div>
@@ -36,8 +37,9 @@ const Ninjas = ({ ninjas,deleteNinja }) => {
 
   return (
     <div className="ninja-list">
-      {ninjas.map(ninja => {
-        return ninja.roll > 10 ? (
+      
+      {ninjas.length>0 ? ninjas.map(ninja => {
+        return ninja.roll > 0 ? (
           <div className="ninja" key={ninja.roll}>
             <p style={{ padding: "10px" }}>Roll : {ninja.roll}</p>
             <p style={{ padding: "10px" }}>Name :{ninja.name}</p>
@@ -47,7 +49,7 @@ const Ninjas = ({ ninjas,deleteNinja }) => {
             </button>
           </div>
         ) : null;
-      })}
+      }) : <p>No Record</p> }
     </div>
   );
 
