@@ -4,9 +4,10 @@ const Todos = ({todos, deleteTodo}) => {
 
   const todoList = todos.length ? (
     todos.map(todo => {
+      
       return (
-        <div className="collection-item" key={todo.id}>
-          <span onClick={() => {deleteTodo(todo.id)}}>{todo.content}</span>
+        <div onClick={() => {deleteTodo(todo.id)}} className="collection-item" style={{backgroundColor:'#03'+(todo.id*98)+'fc',cursor:'pointer'}} key={todo.id}>
+          <span >{todo.content}</span>
         </div>
       )
     })
