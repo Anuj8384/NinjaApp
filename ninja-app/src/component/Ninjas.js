@@ -5,7 +5,7 @@ import React from "react";
 // import Button from './AddNinja'
 
 const Ninjas = ({ ninjas,deleteNinja }) => {
-  console.log(ninjas)
+
   //   const ninjaList =
   // return (
   //   <div>

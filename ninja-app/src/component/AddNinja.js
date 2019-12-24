@@ -12,26 +12,61 @@ import TextField from "@material-ui/core/TextField";
 // }));
 // const classes = useStyles();
 
-class AddNinja extends Component {
-  state = {
-    roll: null,
-    name: null,
-    class: null
-  };
+const initialState = {
+  roll: 0,
+  name: '',
+  class: ''
+};
 
+class AddNinja extends Component {
+
+  constructor(){
+    super();
+    this.state = initialState;
+  }
+
+  componentDidMount(){
+    this.setRoll();
+  }
+  setRoll =() => {
+    let data = [];
+     data = JSON.parse(localStorage.getItem('ninjas'));
+    if(data && data.length>0){
+      const max = data.reduce((prev, current) => {
+        return (prev.roll > current.roll) ? prev : current
+     });
+     if(max){
+       let rol = JSON.parse(max.roll)+1;
+      this.setState({
+        roll: rol
+      })
+     }
+    }
+  }
+  
   handleChange = e => {
     this.setState({
       [e.target.id]: e.target.value
     });
   };
+
+  
+
   handleSubmit = e => {
     e.preventDefault();
     this.props.addNinja(this.state);
+    const roll = JSON.parse(this.state.roll)+1;
+   this.setState({
+     roll: roll,
+     name: '',
+     class: ''
+   });
+  
   };
   //   onSubmit={}
   render() {
     return (
-      <form noValidate autoComplete="off">
+      <form  noValidate autoComplete="off">
         <div>
           <TextField
             className="add-field"
@@ -39,6 +74,7 @@ class AddNinja extends Component {
             label="Roll"
             type="number"
             id="roll"
+            value={this.state.roll}
             onChange={this.handleChange}
           />
             <br></br>
@@ -47,6 +83,7 @@ class AddNinja extends Component {
             label="Name"
             type="text"
             id="name"
+            value={this.state.name}
             onChange={this.handleChange}
           />
 <br></br>
@@ -55,6 +92,7 @@ class AddNinja extends Component {
             label="Class"
             type="text"
             id="class"
+            value={this.state.class}
             onChange={this.handleChange}
           />
           <br></br><br></br>
